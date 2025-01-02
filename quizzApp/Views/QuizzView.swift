@@ -11,6 +11,7 @@ import SwiftUI
 struct QuizzView: View {
     let questions: [Question]
     
+    @State private var tx = ""
     @State private var currentQuestionIndex = 3
     
     var body: some View {
@@ -21,11 +22,17 @@ struct QuizzView: View {
             
             List {
                 ForEach(questions[currentQuestionIndex].options, id: \.self) { option in
-                    Text(option)
-                        .font(.largeTitle)
-                        .padding()
+                    Button(action:{
+                        tx = option
+                    }){
+                        Text(option)
+                            .font(.largeTitle)
+                            .padding()
+                            
+                    }
                 }
             }
+            Text(tx)
         }
     }
 }
