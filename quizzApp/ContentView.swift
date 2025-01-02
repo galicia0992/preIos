@@ -7,18 +7,43 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView{
+            VStack(){
+                Text("Quizz time")
+                    .font(.largeTitle)
+                    .bold()
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                Text("Estas listo?")
+                    .font(.subheadline)
+                    .padding()
+                Spacer()
+                
+                NavigationLink(destination: QuizzView(questions: questions)) {
+                    Text("Comenzar")
+                        .font(.title2)
+                        .padding()
+                        .background(Color(red: 0.5450980392156862, green: 0.36470588235294116, blue: 1.0))
+                        .foregroundColor(Color.white)
+                        .cornerRadius(10)
+                    
+                    
+                }
+                Spacer()
+                
+            }
+            .background(Color(red: 1.0, green: 0.9686274509803922, blue: 0.8196078431372549))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
         }
-        .padding()
-    }
+        }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
